@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <style type="text/css">
+      .tg  {border-collapse:collapse;border-spacing:0;}
+      .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+      .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color: black !important;}
+      .tg .tg-0lax{text-align:left;vertical-align:top}
+      .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+  </style>
+  
+  <div class="text-photo-sc container-fluid blue-bg" style="margin-top: -21px;background-color:transperent;color: black;">
+    <div class="row">
+        
+        <div class="col-md-12 text-holder text1">
+        <br></br>
+          <center>
+          
+            <a href="{% url 'result' %}" type="button" class="btn btn-primary btn-lg btn-block">Search</a>
+         <table class="tg tgi" style=" width: 821px; margin-top: 14px; margin-bottom: 20px; background: #efefef; ">
+         <strong style=" font-size: 23px; ">Patient Detail</strong>
+         <br>
+  
+  <tr style="width: 100%;background: white; font-weight: 800; color: #000;">
+    <th class="tg-0lax" style="font-weight: 800; color: #000;">Name</th>
+    <th class="tg-0lax" style="font-weight: 800; color: #000;">Age</th>
+    <th class="tg-0lax" style="font-weight: 800; color: #000;">Gender</th>
+    <th class="tg-0lax"  style="font-weight: 800; color: #000;">Mobile No.</th>
+    <th class="tg-0pky"  style="font-weight: 800; color: #000;">Procedure</th>
+    <th class="tg-0pky"  style="font-weight: 800; color: #000;">Date</th>
+    <th class="tg-0pky"  style="font-weight: 800; color: #000;">Time</th>
+    <th class="tg-0pky"  style="font-weight: 800; color: #000;">Reffereed by</th>
+    <th class="tg-0pky"  style="font-weight: 800; color: #000;">Comment</th>
+  </tr>
+  {% for detail in details %}
+  <tr>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.name }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.age }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.gender }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.mobile_number }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.procedure }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.date }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.time }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.reffered_by }}</td>
+    <td class="tg-0lax" style="font-weight: 500; color: #000;">{{ detail.comment }}</td>
+  </tr>
+  {% endfor %}
+  </table> 
+  <a href="{% url 'whole' %}" class="btn btn-primary">Download Data</a>
+  </center>
+
+        </div>
+    </div>
+  </div>
+  
+  
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

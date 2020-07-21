@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+{% load crispy_forms_tags %}
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="{% static 'css/normalize.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'css/datepicker.css' %}" rel="stylesheet" type="text/css"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+    <script>
+        $(function () {
+            $("#id_reffered_by").autocomplete({
+                source: function (request, response){
+                    $.ajax({
+                        url: "/",
+                        data: { q: request.term },
+                        dataType: "json",
+                        success: response,
+                        minLength:2,
+                        error: function () {
+                            response([]);
+                        }
+                    });
+
+                }
+               
+            });
+        });
+        
+    </script>
+    <script>
+        $(function () {
+            $("#id_name").autocomplete({
+                source: function (request, response){
+                    $.ajax({
+                        url: "/",
+                        data: { n: request.term },
+                        dataType: "json",
+                        success: response,
+                        minLength:2,
+                        error: function () {
+                            response([]);
+                        }
+                    });
+
+                }
+               
+            });
+        });
+        
+    </script>
+    <script>
+        $(function () {
+            $("#id_procedure").autocomplete({
+                source: function (request, response){
+                    $.ajax({
+                        url: "/",
+                        data: { p: request.term },
+                        dataType: "json",
+                        success: response,
+                        minLength:2,
+                        error: function () {
+                            response([]);
+                        }
+                    });
+
+                }
+               
+            });
+        });
+        
+    </script>
+    <script type="text/javascript">
+        $(function(){
+            $('#id_date').datepicker({
+                inline: true,
+                //nextText: '&rarr;',
+                //prevText: '&larr;',
+                showOtherMonths: true,
+                //dateFormat: 'dd MM yy',
+                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                //showOn: "button",
+                //buttonImage: "img/calendar-blue.png",
+                //buttonImageOnly: true,
+            });
+        });
+    </script>
+  
+    <title>Patient Details</title>
+    
+
+  </head>
+  <body>
+
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+                    <div class="container register">
+                                <div class="tab-content" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                        <h3 class="register-heading">Patient Details</h3>
+                                        <div class="row register-form">
+                                            <form action="{% url 'form' %}" method="POST" class="col-md-6">
+                                                {% csrf_token %}
+                                                {{ form.name|as_crispy_field }}
+                                                {{ form.age|as_crispy_field }}
+                                                {{ form.gender|as_crispy_field }}
+                                                {{ form.mobile_number|as_crispy_field }}
+                                                {{ form.procedure|as_crispy_field }}
+                                                {{ form.reffered_by|as_crispy_field }}
+                                                {{ form.date | as_crispy_field}}
+                                                {{ form.comment|as_crispy_field }}
+                                                
+                                                
+                                                <button type="submit" class="btnRegister" value="Register">Save</button>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                  
+
+    </body>
+</html>
+
