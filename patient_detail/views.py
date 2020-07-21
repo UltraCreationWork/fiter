@@ -46,7 +46,7 @@ def detail(request):
     data = {
         'details':Patient_detail.objects.all()
     }
-    return render(request,'patient_detail\detail.html',data)
+    return render(request,'patient_detail/detail.html',data)
 
 data = ''
 def detail_list(request):
