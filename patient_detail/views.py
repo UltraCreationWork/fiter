@@ -79,7 +79,7 @@ def wholeData(request):
     resource = Patient_detailResource()
     dataset = resource.export()
     response = HttpResponse(dataset, content_type='application/vnd.ms-excel')
-    response['Content-Disposition'] = 'attachment; filename="patient.xls"'
+    response['Content-Disposition'] = 'attachment; filename="patient.csv"'
     return response
 
 
@@ -88,6 +88,6 @@ def export(request):
     resource = Patient_detailResource()
     dataset = resource.export(data)
     response = HttpResponse(dataset, content_type='application/vnd.ms-excel')
-    response['Content-Disposition'] = 'attachment; filename="patient.xls"'
+    response['Content-Disposition'] = 'attachment; filename="patient.csv"'
     return response
 
