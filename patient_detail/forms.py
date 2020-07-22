@@ -14,9 +14,7 @@ choise=[
     ("BOTH","Both")
 ]
 class DetailForm(ModelForm):
-    _placeholders = {
-        'fieldname': 'fieldname placeholder',
-    }
+
     def __init__(self, *args, **kwargs):
         super(DetailForm, self).__init__(*args, **kwargs)
         helper = self.helper = FormHelper(self)
