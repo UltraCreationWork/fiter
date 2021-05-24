@@ -15,6 +15,7 @@ def detailform(request):
     form = DetailForm(request.POST or request.GET or None)  
     if 'n' in request.GET:
         qs = Patient_detail.objects.filter(name__icontains=request.GET.get('n'))
+        print(qs)
         names = list()
         for pd in qs:
             names.append(pd.name)
@@ -52,6 +53,7 @@ data = ''
 def detail_list(request):
     if 'n' in request.GET:
         qs = Patient_detail.objects.filter(name__icontains=request.GET.get('n'))
+        print(qs)
         names = list()
         for pd in qs:
             names.append(pd.name)

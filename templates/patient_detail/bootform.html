@@ -39,27 +39,7 @@
         });
         
     </script>
-    <script>
-        $(function () {
-            $("#id_name").autocomplete({
-                source: function (request, response){
-                    $.ajax({
-                        url: "/",
-                        data: { n: request.term },
-                        dataType: "json",
-                        success: response,
-                        minLength:2,
-                        error: function () {
-                            response([]);
-                        }
-                    });
-
-                }
-               
-            });
-        });
-        
-    </script>
+         
     <script>
         $(function () {
             $("#id_procedure").autocomplete({
